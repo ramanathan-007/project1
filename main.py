@@ -1,10 +1,13 @@
 import numpy
+import pandas as pd
 from scipy import stats
 import matplotlib.pyplot as plt
 import pandas
 from sklearn.metrics import r2_score
 from sklearn import linear_model
 from sklearn.preprocessing import StandardScaler
+import bar_chart_race
+import plotly
 dataset = [5,7,8,7,2,17,2,9,4,11,12,9,6]
 
 x=numpy.mean(dataset)
@@ -66,6 +69,8 @@ df=pandas.read_csv("C:\\Users\\raman\\Desktop\\data.csv")
 
 xa = df[['goals%','freethrows%']]
 xb = df['points']
+print(df.head())
+print(df.describe())
 
 regr = linear_model.LinearRegression()
 regr.fit(xa,xb)
@@ -85,6 +90,11 @@ xm = df[['Height','weight']]
 scaleda = scale.fit_transform(xm)
 
 print("Scale",scaleda)
+
+#barchart
+plt.bar(xb,100)
+plt.show()
+
 
 
 
